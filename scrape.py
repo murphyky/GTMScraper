@@ -55,7 +55,7 @@ def get_threads_in_section_page(section_url, section_page, thread_urls, threads_
 
 
 def get_thread(url):
-	print "getting this thread: " + url
+	
 	page_content = scrape_html(url)
 	if page_content == None:
 		return None
@@ -64,6 +64,8 @@ def get_thread(url):
 	pagelinks = pagination.find_all("a")
 	thread_title = page_content.find("h2", class_="topic-title")
 	thread_title = thread_title.get_text()
+	print "getting this thread: " + url + thread_title
+
 	page_numbers = []
 
 	if pagelinks:
