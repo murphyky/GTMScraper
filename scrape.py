@@ -7,7 +7,11 @@ sections = {
 	"general_gaming": "https://forum.gamestm.co.uk/viewforum.php?f=3",
 	"high_scores": "https://forum.gamestm.co.uk/viewforum.php?f=4",
 	"off_topic": "https://forum.gamestm.co.uk/viewforum.php?f=7",
-	"news": "https://forum.gamestm.co.uk/viewforum.php?f=10"
+	"news": "https://forum.gamestm.co.uk/viewforum.php?f=10",
+	"feedback": "https://forum.gamestm.co.uk/viewforum.php?f=2",
+	"Q&A": "https://forum.gamestm.co.uk/viewforum.php?f=5",
+	"collectors": "https://forum.gamestm.co.uk/viewforum.php?f=5"
+
 }
 def get_forum_section(section_url):
 
