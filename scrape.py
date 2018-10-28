@@ -5,6 +5,9 @@ import csv
 domain = "https://forum.gamestm.co.uk/"
 general_gaming = "https://forum.gamestm.co.uk/viewforum.php?f=3"
 high_scores = "https://forum.gamestm.co.uk/viewforum.php?f=4"
+off_topic = "https://forum.gamestm.co.uk/viewforum.php?f=7"
+news = "https://forum.gamestm.co.uk/viewforum.php?f=10"
+
 sections = [high_scores]
 
 def get_forum_section(section_url):
@@ -157,5 +160,4 @@ with open("gtm.csv", "wb") as csvfile:
 		for i in range(0, threads.__len__()):
 			thread = get_thread(threads[i])
 			if thread:
-				print thread
 				writer.writerows(thread)
