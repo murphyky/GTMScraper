@@ -3,13 +3,12 @@ import requests
 import csv
 
 domain = "https://forum.gamestm.co.uk/"
-general_gaming = "https://forum.gamestm.co.uk/viewforum.php?f=3"
-high_scores = "https://forum.gamestm.co.uk/viewforum.php?f=4"
-off_topic = "https://forum.gamestm.co.uk/viewforum.php?f=7"
-news = "https://forum.gamestm.co.uk/viewforum.php?f=10"
-
-sections = [high_scores]
-
+sections = {
+	"general_gaming": "https://forum.gamestm.co.uk/viewforum.php?f=3",
+	"high_scores": "https://forum.gamestm.co.uk/viewforum.php?f=4",
+	"off_topic": "https://forum.gamestm.co.uk/viewforum.php?f=7",
+	"news": "https://forum.gamestm.co.uk/viewforum.php?f=10"
+}
 def get_forum_section(section_url):
 
 	page_content = scrape_html(section_url)
@@ -151,12 +150,12 @@ def scrape_html(url):
 
 
 headers = ["Thread", "Author", "Timestamp", "Post"]
-with open("gtm.csv", "wb") as csvfile:
-	writer = csv.writer(csvfile)
-	writer.writerow(headers)
 
-	for section in sections:
-		threads = get_forum_section(section)
+for section in dict.keys(sections):
+	with open(section+"GTM.csv", "wb") as csvfile:
+		writer = csv.writer(csvfile)
+		writer.writerow(headers)
+		threads = get_forum_section(sections[section])
 		for i in range(0, threads.__len__()):
 			thread = get_thread(threads[i])
 			if thread:
